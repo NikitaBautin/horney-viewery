@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "bun --bun next dev",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "build-src": "bun lint && bun lint:fix && bun --bun next build",
+    "start": "bun --bun next start",
+    "prod": "bun build-src && bun start"
   },
   "dependencies": {
     "next": "16.0.3",
@@ -18,9 +20,12 @@
     "@types/node": "20",
     "@types/react": "19",
     "@types/react-dom": "19",
-    "eslint": "9",
+    "eslint": "9.39.1",
     "eslint-config-next": "16.0.3",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-react-hooks": "7.0.1",
     "tailwindcss": "4",
-    "typescript": "5"
+    "typescript": "5",
+    "typescript-eslint": "8.46.4"
   }
 }
